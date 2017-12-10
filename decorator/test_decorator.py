@@ -10,30 +10,26 @@ class DecoratorTest(unittest.TestCase):
     def setUp(self):
         self.darkRoast = DarkRoast()
 
-    def test_coffee_name(self):
+    def test_decorator_coffee_name(self):
         self.assertEqual('ダークロースト', self.darkRoast.get_description())
 
-    def test_coffee_cost(self):
+    def test_decorator_coffee_cost(self):
         self.assertEqual(340, self.darkRoast.cost())
 
-    def test_coffee_name_with_milk(self):
+    def test_decorator_coffee_name_with_milk(self):
         darkRoast = Milk(self.darkRoast)
         self.assertEqual('ダークロースト、ミルク入り', darkRoast.get_description())
 
-    def test_coffee_cost_with_milk(self):
+    def test_decorator_coffee_cost_with_milk(self):
         darkRoast = Milk(self.darkRoast)
         self.assertEqual(370, darkRoast.cost())
 
-    def test_coffee_name_with_milk_and_whip(self):
+    def test_decorator_coffee_name_with_milk_and_whip(self):
         darkRoast = Milk(self.darkRoast)
         darkRoast = Whip(darkRoast)
         self.assertEqual('ダークロースト、ミルク入り、ホイップ入り', darkRoast.get_description())
 
-    def test_coffee_cost_with_milk_and_whip(self):
+    def test_decorator_coffee_cost_with_milk_and_whip(self):
         darkRoast = Milk(self.darkRoast)
         darkRoast = Whip(darkRoast)
         self.assertEqual(400, darkRoast.cost())
-
-
-if __name__ == '__main__':
-    unittest.main()
